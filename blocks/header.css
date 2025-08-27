@@ -1,0 +1,21 @@
+.header {
+  padding-bottom: 4%;
+  border-bottom: 1px solid #545454;
+}
+
+.header__title {
+  display: flex;
+  flex-direction: row;
+}
+
+.header__title-big {
+  font-weight: 400;
+  font-size: 42px;
+  line-height: 48px;
+}
+
+.header__title-small {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+}
