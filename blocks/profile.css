@@ -1,19 +1,14 @@
 .profile {
-  display: flex;
-  flex-direction: row;
-  margin: 5% 0;
-  justify-content: space-between;
-}
-
-.profile__content {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  gap: 5%;
+  margin: 40px 0 50px 0;
 }
 
 .profile__image {
   border-radius: 100%;
   width: 19%;
-  margin-right: 5%;
+  width: 100%;
 }
 
 .profile__info {
