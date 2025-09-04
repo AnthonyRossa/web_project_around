@@ -58,3 +58,10 @@
 .card__like-button:active {
   fill: #000000;
 }
+
+@media screen and (max-width: 800px) {
+  .cards {
+    grid-template-columns: auto auto;
+    padding: 0 10% 0;
+  }
+}
