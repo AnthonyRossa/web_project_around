@@ -25,9 +25,11 @@
   grid-row: 1 / 2;
   grid-column: 1 / 2;
   align-self: flex-end;
+  margin: 0;
 }
 
 .profile__edit-button {
+  background-color: #000000;
   width: 22px;
   height: 22px;
   border: solid 1px #ffffff;
@@ -43,7 +45,12 @@
   align-self: center;
 }
 
-.profile__description {
+.profile__edit-button:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.profile__about {
   font-size: 18px;
   line-height: 100%;
   grid-row: 2 / 3;
@@ -52,6 +59,7 @@
 }
 
 .profile__add-button {
+  background-color: #000000;
   border: solid 2px #ffffff;
   width: 146px;
   height: 45px;
@@ -63,4 +71,9 @@
 
 .profile__add-icon {
   align-self: center;
+}
+
+.profile__add-button:hover {
+  opacity: 0.7;
+  cursor: pointer;
 }

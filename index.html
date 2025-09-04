@@ -29,22 +29,22 @@
         />
         <div class="profile__info">
           <h1 class="profile__name">Jacques Cousteau</h1>
-          <div class="profile__edit-button">
+          <button class="profile__edit-button" type="button">
             <img
               src="images/pencil.svg"
               alt="icone de edição"
               class="profile__edit-icon"
             />
-          </div>
-          <p class="profile__description">Explorador</p>
+          </button>
+          <p class="profile__about">Explorador</p>
         </div>
-        <div class="profile__add-button">
+        <button class="profile__add-button" type="button">
           <img
             class="profile__add-icon"
             alt="icone +"
             src="images/addicon.svg"
           />
-        </div>
+        </button>
       </section>
       <section class="cards">
         <div class="cards__card">
@@ -53,15 +53,15 @@
           <button class="card__like-button" type="button">
             <svg
               class="card__like-icon"
-              width="22"
+              width="21"
               height="19"
-              viewBox="0 0 22 19"
+              viewBox="0 0 21 19"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M20.2991 9.78586C22.567 7.54338 22.567 3.90213 20.2991 1.68186C18.0311 -0.560619 14.3486 -0.560619 12.0806 1.68186L10.9804 2.792L9.88007 1.70406C7.61215 -0.560619 3.92957 -0.560619 1.6841 1.68186C0.583822 2.76979 0 4.21297 0 5.74496C0 7.27695 0.606277 8.72013 1.6841 9.80806L10.9804 19L20.2991 9.78586ZM1.4371 5.74496C1.4371 4.59042 1.8862 3.52469 2.71702 2.72539C3.5703 1.88168 4.67058 1.45983 5.77086 1.45983C6.87114 1.45983 7.97142 1.88168 8.8247 2.72539L10.9804 4.83465L13.136 2.70318C14.8201 1.03798 17.582 1.03798 19.2437 2.70318C20.0521 3.50248 20.5236 4.56821 20.5236 5.72276C20.5236 6.8773 20.0745 7.94303 19.2437 8.74233L10.9804 16.9351L2.71702 8.76453C1.90865 7.94303 1.4371 6.8773 1.4371 5.74496Z"
-                fill="black"
+                d="M19.3764 9.78586C21.5412 7.54338 21.5412 3.90213 19.3764 1.68186C17.2115 -0.560619 13.6964 -0.560619 11.5315 1.68186L10.4812 2.792L9.43098 1.70406C7.26614 -0.560619 3.75096 -0.560619 1.60755 1.68186C0.557285 2.76979 0 4.21297 0 5.74496C0 7.27695 0.578719 8.72013 1.60755 9.80806L10.4812 19L19.3764 9.78586ZM1.37178 5.74496C1.37178 4.59042 1.80046 3.52469 2.59352 2.72539C3.40801 1.88168 4.45828 1.45983 5.50855 1.45983C6.55882 1.45983 7.60909 1.88168 8.42358 2.72539L10.4812 4.83465L12.5389 2.70318C14.1465 1.03798 16.7829 1.03798 18.369 2.70318C19.1406 3.50248 19.5907 4.56821 19.5907 5.72276C19.5907 6.8773 19.162 7.94303 18.369 8.74233L10.4812 16.9351L2.59352 8.76453C1.82189 7.94303 1.37178 6.8773 1.37178 5.74496Z"
+                fill="currentColor"
               />
             </svg>
           </button>
@@ -166,5 +166,29 @@
         <p class="footer__content">© 2025 Anthony Rossa</p>
       </footer>
     </div>
+    <div class="popup">
+      <div class="popup__container">
+        <button class="popup__close" type="button">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M28.5708 0.286517L16 12.8573L3.42918 0.286515L0.286486 3.42921L12.8573 16L0.286486 28.5708L3.42918 31.7135L16 19.1427L28.5708 31.7135L31.7135 28.5708L19.1427 16L31.7135 3.42921L28.5708 0.286517Z"
+              fill="white"
+            />
+          </svg>
+        </button>
+        <form class="popup__form"></form>
+        <h2 class="popup__title">Editar Perfil</h2>
+        <input class="popup__input" type="text" name="name" required />
+        <input class="popup__input" type="text" name="about" required />
+        <button class="popup__save" type="submit">Salvar</button>
+      </div>
+    </div>
+    <script src="/scripts/script.js"></script>
   </body>
 </html>

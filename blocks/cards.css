@@ -38,6 +38,23 @@
 .card__like-button {
   width: 21px;
   height: 19px;
-  border-style: none;
+  fill: transparent;
+  border: none;
+  cursor: pointer;
   background-color: #ffffff;
+}
+
+.card__like-icon {
+  width: 22px;
+  height: 19px;
+  fill: transparent;
+  transition: fill 0.3s ease;
+}
+
+.card__like-button:hover {
+  opacity: 0.5;
+}
+
+.card__like-button:active {
+  fill: #000000;
 }
