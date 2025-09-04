@@ -69,6 +69,6 @@
 @media screen and (max-width: 320px) {
   .cards {
     grid-template-columns: auto;
-    padding: 0;
+    padding: 0 5% 0;
   }
 }

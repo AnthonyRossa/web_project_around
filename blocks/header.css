@@ -3,19 +3,12 @@
   border-bottom: 1px solid #545454;
 }
 
-.header__title {
-  display: flex;
-  flex-direction: row;
-}
+@media screen and (max-width: 320px) {
+  .header {
+    padding: 10% 0;
+  }
 
-.header__title-big {
-  font-weight: 400;
-  font-size: 42px;
-  line-height: 48px;
-}
-
-.header__title-small {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 100%;
+  .header__title {
+    padding: 0 5%;
+  }
 }
