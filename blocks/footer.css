@@ -8,3 +8,13 @@
   font-size: 18px;
   line-height: 100%;
 }
+
+@media screen and (max-width: 320px) {
+  .footer {
+    padding: 20% 0 10%;
+  }
+
+  .footer__content {
+    font-size: 14px;
+  }
+}
