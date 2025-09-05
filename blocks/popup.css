@@ -21,6 +21,7 @@
   width: 100%;
   padding: 3%;
   position: relative;
+  border-radius: 10px;
 }
 
 .popup__close {
@@ -47,6 +48,7 @@
   height: 28px;
   border: none;
   border-bottom: 1px solid #bcbcbc;
+  padding-bottom: 10px;
 }
 
 .popup__save {
@@ -57,9 +59,42 @@
   color: white;
   background-color: black;
   border: none;
+  border-radius: 5px;
 }
 
 .popup__save:hover {
   background-color: rgba(0, 0, 0, 0.7);
   cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  .popup__container {
+    max-width: 70%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .popup__container {
+    max-width: 70%;
+    padding: 10% 5%;
+  }
+
+  .popup__close {
+    top: -60px;
+    right: 0;
+  }
+
+  .popup__title {
+    margin-bottom: 20%;
+    font-size: 18px;
+  }
+
+  .popup__input {
+    font-size: 14px;
+  }
+
+  .popup__save {
+    margin-top: 20%;
+    font-size: 14px;
+  }
 }

@@ -6,7 +6,8 @@
 }
 
 .cards__card {
-  max-width: 282px;
+  width: 100%;
+  max-width: 300px;
   height: 361px;
   background-color: #ffffff;
   border-radius: 10px;
