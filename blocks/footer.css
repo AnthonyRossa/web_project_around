@@ -9,7 +9,7 @@
   line-height: 100%;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 600px) {
   .footer {
     padding: 20% 5% 10%;
   }

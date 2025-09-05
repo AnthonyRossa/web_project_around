@@ -67,9 +67,10 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 600px) {
   .cards {
     grid-template-columns: auto;
     padding: 0 5% 0;
+    justify-content: center;
   }
 }
