@@ -45,18 +45,18 @@
   background-color: #ffffff;
 }
 
-.card__like-icon {
+.cards__like-icon {
   width: 22px;
   height: 19px;
   fill: transparent;
   transition: fill 0.3s ease;
 }
 
-.card__like-button:hover {
+.cards__like-button:hover {
   opacity: 0.5;
 }
 
-.card__like-button:active {
+.cards__like-button:active {
   fill: #000000;
 }
 
