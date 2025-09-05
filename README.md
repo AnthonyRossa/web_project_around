@@ -6,4 +6,4 @@ Descrição: A funcionalidade é o perfil de uma rede social, onde varias fotos 
 
 Técnicas Ultilizadas: Este Projeto implementa varias funções, como css Grid, form, utilização de javascript etc.
 
-link:
+link: https://anthonyrossa.github.io/web_project_around/index.html
