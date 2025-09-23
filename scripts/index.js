@@ -3,6 +3,32 @@ const addButton = document.querySelector(".profile__add-button");
 const popup = document.querySelector(".popup");
 const closeButton = document.querySelector(".popup__close");
 const formElement = document.querySelector(".popup__form");
+const initialCards = [
+  {
+    name: "Vale de Yosemite",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
+  },
+  {
+    name: "Lago Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
+  },
+  {
+    name: "Montanhas Carecas",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
+  },
+  {
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
+  },
+  {
+    name: "Parque Nacional da Vanoise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
+  },
+];
 
 function configurePopup(title, formContent, submitText) {
   const popup = document.querySelector(".popup");
@@ -61,19 +87,60 @@ closeButton.addEventListener("click", closePopup);
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
+
   const nameInput = document.querySelector('.popup__input[name="name"]');
   const aboutInput = document.querySelector('.popup__input[name="about"]');
+
   const nameValue = nameInput.value;
   const aboutValue = aboutInput.value;
+
   const profileName = document.querySelector(".profile__name");
   const profileAbout = document.querySelector(".profile__about");
+
   profileName.textContent = nameValue;
   profileAbout.textContent = aboutValue;
 
   closePopup();
 }
+
+function renderInitialCards() {
+  const cardsContainer = document.querySelector(".cards");
+  initialCards.forEach((cardData) => {
+    const cardElement = createCard(cardData.name, cardData.link);
+    cardsContainer.appendChild(cardElement);
+  });
+}
+
+function createCard(name, link) {
+  const cardTemplate = document.querySelector("#card-template").content;
+  const cardElement = cardTemplate
+    .querySelector(".cards__card")
+    .cloneNode(true);
+
+  cardElement.querySelector(".cards__card-image").src = link;
+  cardElement.querySelector(".cards__card-image").alt = name;
+  cardElement.querySelector(".cards__card-title").textContent = name;
+
+  return cardElement;
+}
+
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
+
+  const titleInput = document.querySelector('.popup__input[name="title"]');
+  const linkInput = document.querySelector('.popup__input[name="link"]');
+
+  const titleValue = titleInput.value;
+  const linkValue = linkInput.value;
+
+  const newCard = createCard(titleValue, linkValue);
+
+  const cardsContainer = document.querySelector(".cards");
+  cardsContainer.prepend(newCard);
+
+  titleInput.value = "";
+  linkInput.value = "";
+
   closePopup();
 }
 
@@ -87,4 +154,8 @@ document.addEventListener("submit", function (evt) {
       handleAddCardFormSubmit(evt);
     }
   }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderInitialCards();
 });
