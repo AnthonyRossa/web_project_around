@@ -15,6 +15,7 @@
   grid-template-columns: 7fr 1fr;
   grid-template-rows: auto auto;
   overflow: hidden;
+  position: relative;
 }
 
 .cards__card-image {
@@ -22,6 +23,12 @@
   height: 282px;
   grid-row: 1 / 2;
   grid-column: 1 / 3;
+}
+
+.cards__card-content {
+  grid-column: 1 / 3;
+  display: flex;
+  justify-content: space-between;
 }
 
 .cards__card-title {
@@ -44,6 +51,7 @@
   border: none;
   cursor: pointer;
   background-color: #ffffff;
+  margin-right: 30px;
 }
 
 .cards__like-icon {
@@ -59,6 +67,15 @@
 
 .cards__like-button:active {
   fill: #000000;
+}
+
+.cards__delete-button {
+  position: absolute;
+  z-index: 1;
+  top: 20px;
+  right: 20px;
+  width: 18px;
+  height: 19px;
 }
 
 @media screen and (max-width: 800px) {

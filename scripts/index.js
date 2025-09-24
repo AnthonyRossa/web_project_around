@@ -121,7 +121,16 @@ function createCard(name, link) {
   cardElement.querySelector(".cards__card-image").alt = name;
   cardElement.querySelector(".cards__card-title").textContent = name;
 
+  const deleteButton = cardElement.querySelector(".cards__delete-button");
+  deleteButton.addEventListener("click", () => {
+    deleteCard(cardElement);
+  });
+
   return cardElement;
+}
+
+function deleteCard(cardElement) {
+  cardElement.remove();
 }
 
 function handleAddCardFormSubmit(evt) {

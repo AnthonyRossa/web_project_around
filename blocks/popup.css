@@ -13,6 +13,7 @@
 
 .popup_opened {
   display: flex;
+  z-index: 2;
 }
 
 .popup__container {
