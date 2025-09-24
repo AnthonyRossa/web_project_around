@@ -51,22 +51,16 @@
   border: none;
   cursor: pointer;
   background-color: #ffffff;
-  margin-right: 30px;
-}
-
-.cards__like-icon {
-  width: 22px;
-  height: 19px;
-  fill: transparent;
-  transition: fill 0.3s ease;
+  margin-right: 20px;
+  background-image: url(/images/like-button.svg);
 }
 
 .cards__like-button:hover {
-  opacity: 0.5;
+  background-image: url(/images/like-button-hover.svg);
 }
 
-.cards__like-button:active {
-  fill: #000000;
+.cards__like-button_active {
+  background-image: url(/images/like-button-filled.svg);
 }
 
 .cards__delete-button {

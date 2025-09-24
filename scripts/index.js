@@ -126,11 +126,20 @@ function createCard(name, link) {
     deleteCard(cardElement);
   });
 
+  const likeButton = cardElement.querySelector(".cards__like-button");
+  likeButton.addEventListener("click", () => {
+    toggleLike(likeButton);
+  });
+
   return cardElement;
 }
 
 function deleteCard(cardElement) {
   cardElement.remove();
+}
+
+function toggleLike(likeButton) {
+  likeButton.classList.toggle("cards__like-button_active");
 }
 
 function handleAddCardFormSubmit(evt) {
