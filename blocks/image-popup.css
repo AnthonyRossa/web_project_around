@@ -48,9 +48,9 @@
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
-  background-image: url(././images/closeicon.svg);
+  background-image: url(../images/closeicon.svg);
 }
 
 .image-popup__close-button:hover {
-  background-image: url(././images/closeiconhover.svg);
+  background-image: url(../images/closeiconhover.svg);
 }
