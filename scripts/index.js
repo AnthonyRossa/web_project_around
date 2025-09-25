@@ -3,6 +3,8 @@ const addButton = document.querySelector(".profile__add-button");
 const popup = document.querySelector(".popup");
 const closeButton = document.querySelector(".popup__close");
 const formElement = document.querySelector(".popup__form");
+const imagePopup = document.querySelector(".image-popup");
+const imagePopupClose = document.querySelector(".image-popup__close-button");
 const initialCards = [
   {
     name: "Vale de Yosemite",
@@ -131,6 +133,11 @@ function createCard(name, link) {
     toggleLike(likeButton);
   });
 
+  const imageElement = cardElement.querySelector(".cards__card-image");
+  imageElement.addEventListener("click", () => {
+    openImage(imageElement);
+  });
+
   return cardElement;
 }
 
@@ -140,6 +147,26 @@ function deleteCard(cardElement) {
 
 function toggleLike(likeButton) {
   likeButton.classList.toggle("cards__like-button_active");
+}
+
+function openImage(imageElement) {
+  const imageSrc = imageElement.src;
+  const imageAlt = imageElement.alt;
+
+  const popupImage = imagePopup.querySelector(".image-popup__image");
+  const popupCaption = imagePopup.querySelector(".image-popup__caption");
+
+  popupImage.src = imageSrc;
+  popupImage.alt = imageAlt;
+  popupCaption.textContent = imageAlt;
+
+  imagePopup.classList.add("image-popup_opened");
+}
+
+imagePopupClose.addEventListener("click", closeImagePopup);
+
+function closeImagePopup() {
+  imagePopup.classList.remove("image-popup_opened");
 }
 
 function handleAddCardFormSubmit(evt) {
