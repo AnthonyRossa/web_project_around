@@ -75,14 +75,14 @@
   right: 20px;
   width: 18px;
   height: 19px;
-  background-image: url(/images/trash.svg);
+  background-image: url(../images/trash.svg);
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
 .cards__delete-button:hover {
-  background-image: url(/images/trash-hover.svg);
+  background-image: url(../images/trash-hover.svg);
 }
 
 @media screen and (max-width: 800px) {
