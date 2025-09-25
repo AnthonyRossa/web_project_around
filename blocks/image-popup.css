@@ -54,3 +54,13 @@
 .image-popup__close-button:hover {
   background-image: url(../images/closeiconhover.svg);
 }
+
+@media screen and (max-width: 600px) {
+  .image-popup__close-button {
+    background-image: url(../images/closeiconmobile.svg);
+  }
+
+  .image-popup__close-button:hover {
+    opacity: 0.4;
+  }
+}
