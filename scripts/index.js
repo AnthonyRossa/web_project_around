@@ -36,7 +36,7 @@ function configurePopup(title, formContent, submitText) {
   const popup = document.querySelector(".popup");
   const popupTitle = popup.querySelector(".popup__title");
   const popupForm = popup.querySelector(".popup__form");
-  const submitButton = popup.querySelector(".popup__save");
+  const submitButton = popup.querySelector(".popup__button");
 
   popupTitle.textContent = title;
   popupForm.innerHTML = formContent;
@@ -47,9 +47,11 @@ function configurePopup(title, formContent, submitText) {
 
 function openEditProfilePopup() {
   const formContent = `
-    <input type="text" name="name" class="popup__input" placeholder="Nome">
-    <input type="text" name="about" class="popup__input" placeholder="Sobre mim">
-    <button type="submit" class="popup__save">Salvar</button>
+    <input id="profile-name" type="text" name="name" class="popup__input" placeholder="Nome" required minlength="2" maxlength="40">
+    <span class="popup__input-error profile-name-error"></span>
+    <input id="profile-about" type="text" name="about" class="popup__input" placeholder="Sobre mim" required minlength="2" maxlength="200">
+    <span class="popup__input-error profile-about-error"></span>
+    <button type="submit" class="popup__button">Salvar</button>
   `;
 
   const popup = configurePopup("Editar Perfil", formContent, "Salvar");
@@ -67,7 +69,7 @@ function openAddCardPopup() {
   const formContent = `
     <input type="text" name="title" class="popup__input" placeholder="Título">
     <input type="url" name="link" class="popup__input" placeholder="Link da imagem">
-    <button type="submit" class="popup__save">Criar</button>
+    <button type="submit" class="popup__button">Criar</button>
     `;
 
   const popup = configurePopup("Novo Lugar", formContent, "Criar");
@@ -104,6 +106,8 @@ function handleProfileFormSubmit(evt) {
 
   closePopup();
 }
+
+const enableValidation = (config) => {};
 
 function renderInitialCards() {
   const cardsContainer = document.querySelector(".cards");
@@ -203,4 +207,13 @@ document.addEventListener("submit", function (evt) {
 
 document.addEventListener("DOMContentLoaded", () => {
   renderInitialCards();
+});
+
+enableValidation({
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: ".popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
 });

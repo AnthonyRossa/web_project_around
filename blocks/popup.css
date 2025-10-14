@@ -57,7 +57,7 @@
   padding-bottom: 10px;
 }
 
-.popup__save {
+.popup__button {
   max-width: 100%;
   width: 100%;
   margin-top: 10%;
@@ -68,7 +68,7 @@
   border-radius: 5px;
 }
 
-.popup__save:hover {
+.popup__button:hover {
   background-color: rgba(0, 0, 0, 0.7);
   cursor: pointer;
 }
@@ -100,7 +100,7 @@
     font-size: 14px;
   }
 
-  .popup__save {
+  .popup__button {
     margin-top: 20%;
     font-size: 14px;
   }
