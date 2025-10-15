@@ -68,6 +68,10 @@
   background-image: url(../images/like-button-filled.svg);
 }
 
+.cards__like-button_active:hover {
+  background-image: url(../images/like-button-filled.svg);
+}
+
 .cards__delete-button {
   position: absolute;
   z-index: 1;
