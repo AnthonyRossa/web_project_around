@@ -202,13 +202,32 @@ function openImage(imageElement) {
   popupCaption.textContent = imageAlt;
 
   imagePopup.classList.add("image-popup_opened");
+  imagePopup.addEventListener("click", closeImagePopupOnOverlay);
+  document.addEventListener("keydown", closeImagePopupOnEsc);
 }
 
 imagePopupClose.addEventListener("click", closeImagePopup);
 
 function closeImagePopup() {
   imagePopup.classList.remove("image-popup_opened");
+  imagePopup.removeEventListener("click", closeImagePopupOnOverlay);
+  document.removeEventListener("keydown", closeImagePopupOnEsc);
 }
+
+const closeImagePopupOnOverlay = (evt) => {
+  if (evt.target === evt.currentTarget) {
+    closeImagePopup(evt.target);
+  }
+};
+
+const closeImagePopupOnEsc = (evt) => {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".image-popup_opened");
+    if (openedPopup) {
+      closeImagePopup(openedPopup);
+    }
+  }
+};
 
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
