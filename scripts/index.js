@@ -103,9 +103,9 @@ function openPopup(popupElement) {
   document.addEventListener("keydown", closePopupOnEsc);
 }
 
-function closePopup(popupElement) {
+function closePopup() {
   popup.classList.remove("popup_opened");
-  popupElement.removeEventListener("click", closePopupOnOverlay);
+  popup.removeEventListener("click", closePopupOnOverlay);
   document.removeEventListener("keydown", closePopupOnEsc);
 }
 
