@@ -36,11 +36,11 @@ function configurePopup(title, formContent, submitText) {
   const popup = document.querySelector(".popup");
   const popupTitle = popup.querySelector(".popup__title");
   const popupForm = popup.querySelector(".popup__form");
-  const submitButton = popup.querySelector(".popup__button");
+  //const submitButton = popup.querySelector(".popup__button");
 
   popupTitle.textContent = title;
   popupForm.innerHTML = formContent;
-  submitButton.textContent = submitText;
+  //submitButton.textContent = submitText;
 
   return popup;
 }
@@ -103,7 +103,7 @@ function openPopup(popupElement) {
   document.addEventListener("keydown", closePopupOnEsc);
 }
 
-function closePopup() {
+function closePopup(popupElement) {
   popup.classList.remove("popup_opened");
   popupElement.removeEventListener("click", closePopupOnOverlay);
   document.removeEventListener("keydown", closePopupOnEsc);

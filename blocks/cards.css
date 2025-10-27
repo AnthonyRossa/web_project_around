@@ -70,6 +70,7 @@
 
 .cards__like-button_active:hover {
   background-image: url(../images/like-button-filled.svg);
+  opacity: 0.7;
 }
 
 .cards__delete-button {
