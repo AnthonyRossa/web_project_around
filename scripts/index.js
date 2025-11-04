@@ -67,7 +67,7 @@ const handleAddCardSubmit = () => {
     link: linkInput.value,
   };
 
-  const card = new Card(cardData, "#card-template");
+  const card = new Card(cardData, "#card-template", imagePopup);
   const cardElement = card.generateCard();
 
   cardsContainer.prepend(cardElement);
@@ -76,7 +76,7 @@ const handleAddCardSubmit = () => {
 const renderInitialCards = () => {
   const cardsContainer = document.querySelector(".cards");
   initialCards.forEach((cardData) => {
-    const card = new Card(cardData, "#card-template");
+    const card = new Card(cardData, "#card-template", imagePopup);
     const cardElement = card.generateCard();
     cardsContainer.appendChild(cardElement);
   });
