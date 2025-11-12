@@ -1,0 +1,23 @@
+{
+  "name": "web_project_around",
+  "version": "1.0.0",
+  "description": "Nome: Around The U.S",
+  "homepage": "https://github.com/AnthonyRossa/web_project_around#readme",
+  "bugs": {
+    "url": "https://github.com/AnthonyRossa/web_project_around/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnthonyRossa/web_project_around.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "jquery": "3.6.0"
+  }
+}
