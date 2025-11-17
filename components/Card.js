@@ -23,7 +23,7 @@ class Card {
     this._likeButton.classList.toggle("cards__like-button_active");
   }
 
-  _handleCardClick() {
+  _handleImageClick(_name, _link) {
     this._handleCardClick(this._name, this._link);
   }
 
@@ -39,7 +39,7 @@ class Card {
     this._element
       .querySelector(".cards__card-image")
       .addEventListener("click", () => {
-        this._handleCardClick();
+        this._handleImageClick();
       });
   }
 

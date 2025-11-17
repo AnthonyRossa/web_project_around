@@ -69,7 +69,9 @@ const handleAddCardSubmit = () => {
     link: linkInput.value,
   };
 
-  const card = new Card(cardData, "#card-template", imagePopup);
+  const card = new Card(cardData, "#card-template", (name, link) => {
+    imagePopup.open(name, link);
+  });
   const cardElement = card.generateCard();
 
   cardsContainer.prepend(cardElement);
@@ -78,7 +80,9 @@ const handleAddCardSubmit = () => {
 const renderInitialCards = () => {
   const cardsContainer = document.querySelector(".cards");
   initialCards.forEach((cardData) => {
-    const card = new Card(cardData, "#card-template", imagePopup);
+    const card = new Card(cardData, "#card-template", (name, link) => {
+      imagePopup.open(name, link);
+    });
     const cardElement = card.generateCard();
     cardsContainer.appendChild(cardElement);
   });
