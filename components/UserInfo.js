@@ -16,3 +16,5 @@ class UserInfo {
     this._aboutElement.textContent = about;
   }
 }
+
+export default UserInfo;
