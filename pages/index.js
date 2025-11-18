@@ -2,6 +2,8 @@ import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
+import UserInfo from "../components/UserInfo.js";
+import Section from "../components/Section.js";
 import {
   validationConfig,
   initialCards,
@@ -19,13 +21,10 @@ const addCardValidator = new FormValidator(validationConfig, addCardForm);
 editProfileValidator.enableValidation();
 addCardValidator.enableValidation();
 
-const updateProfile = (formData) => {
-  const profileName = document.querySelector(".profile__name");
-  const profileAbout = document.querySelector(".profile__about");
-
-  profileName.textContent = formData.name;
-  profileAbout.textContent = formData.about;
-};
+const userInfo = new UserInfo({
+  nameSelector: ".profile__name",
+  aboutSelector: ".profile__about",
+});
 
 const handleAddCardSubmit = () => {
   const nameInput = addCardForm.querySelector("#place-title");
@@ -44,21 +43,25 @@ const handleAddCardSubmit = () => {
   cardsContainer.prepend(cardElement);
 };
 
-const renderInitialCards = () => {
-  const cardsContainer = document.querySelector(".cards");
-  initialCards.forEach((cardData) => {
-    const card = new Card(cardData, "#card-template", (name, link) => {
-      imagePopup.open(name, link);
-    });
-    const cardElement = card.generateCard();
-    cardsContainer.appendChild(cardElement);
+const createCard = (cardData) => {
+  const card = new Card(cardData, "#card-template", (name, link) => {
+    imagePopup.open(name, link);
   });
+  return card.generateCard();
 };
+
+const section = new Section(
+  {
+    items: initialCards,
+    renderer: createCard,
+  },
+  ".cards"
+);
 
 const editProfilePopup = new PopupWithForm(
   "#edit-profile-popup",
   (formData) => {
-    updateProfile(formData);
+    userInfo.setUserInfo(formData);
   }
 );
 
@@ -83,5 +86,5 @@ addCardButton.addEventListener("click", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderInitialCards();
+  section.renderer();
 });

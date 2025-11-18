@@ -41,9 +41,9 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 100%;
-  letter-spacing: 0%;
   color: #ffffff;
   margin-top: 10px;
+  background-color: transparent;
 }
 
 .popup__close {
@@ -66,6 +66,11 @@
 
 .popup__title {
   margin-bottom: 5%;
+  background-color: transparent;
+}
+
+.popup__form {
+  background-color: transparent;
 }
 
 .popup__input {
@@ -76,10 +81,15 @@
   border: none;
   border-bottom: 2px solid #bcbcbc;
   padding-bottom: 10px;
+  background-color: transparent;
 }
 
 .popup__input:focus {
   outline: none;
+}
+
+.popup__input-error {
+  background-color: transparent;
 }
 
 .popup__button {

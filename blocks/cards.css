@@ -32,6 +32,7 @@
   display: flex;
   justify-content: space-between;
   overflow: visible;
+  background-color: transparent;
 }
 
 .cards__card-title {
@@ -45,6 +46,7 @@
   overflow: hidden;
   max-width: 227px;
   padding: 0 0 0 15px;
+  background-color: transparent;
 }
 
 .cards__like-button {
