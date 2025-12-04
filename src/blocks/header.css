@@ -6,7 +6,7 @@
 .header__title {
   width: 173px;
   height: 33px;
-  background-image: url(../images/logo.svg);
+  background-image: url(../../images/logo.svg);
 }
 
 @media screen and (max-width: 600px) {
@@ -16,7 +16,7 @@
 
   .header__title {
     margin: 0 5%;
-    background-image: url(../images/logo-mobile.svg);
+    background-image: url(../../images/logo-mobile.svg);
     background-repeat: no-repeat;
   }
 }
