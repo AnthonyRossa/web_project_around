@@ -2,15 +2,57 @@ import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
+import Api from "../components/Api.js";
 import {
   validationConfig,
-  initialCards,
   editProfileForm,
   addCardForm,
   cardsContainer,
 } from "../utils/constants.js";
+
+const api = new Api({
+  baseUrl: "https://around-api.pt-br.tripleten-services.com/v1",
+  headers: {
+    authorization: "25e44c37-6a52-4a3b-872e-f535279302d8",
+    "Content-Type": "application/json",
+  },
+});
+
+api
+  .getUserInfo()
+  .then((userData) => {
+    userInfo.setUserInfo({
+      name: userData.name,
+      about: userData.about,
+    });
+
+    document.querySelector(".profile__image").src = userData.avatar;
+
+    window.currentUserId = userData._id;
+  })
+  .catch((err) => {
+    console.log("Failed to load user info:", err);
+  });
+
+api
+  .getInitialCards()
+  .then((cards) => {
+    const cardSection = new Section(
+      {
+        items: cards,
+        renderer: createCard,
+      },
+      ".cards"
+    );
+
+    cardSection.renderer();
+  })
+  .catch((err) => {
+    console.log("Failed to load cards:", err);
+  });
 
 const editProfileValidator = new FormValidator(
   validationConfig,
@@ -43,33 +85,51 @@ const handleAddCardSubmit = () => {
   cardsContainer.prepend(cardElement);
 };
 
-const createCard = (cardData) => {
-  const card = new Card(cardData, "#card-template", (name, link) => {
-    imagePopup.open(name, link);
-  });
-  return card.generateCard();
-};
-
-const section = new Section(
-  {
-    items: initialCards,
-    renderer: createCard,
-  },
-  ".cards"
-);
-
 const editProfilePopup = new PopupWithForm(
   "#edit-profile-popup",
   (formData) => {
-    userInfo.setUserInfo(formData);
+    api
+      .setUserInfo(formData)
+      .then((updatedUserData) => {
+        userInfo.setUserInfo(updatedUserData);
+        editProfilePopup.close();
+      })
+      .catch((err) => {
+        console.log("Error at updating profile:", err);
+      });
   }
 );
 
 const addCardPopup = new PopupWithForm("#add-card-popup", (formData) => {
-  handleAddCardSubmit(formData);
+  console.log("FormData being sent:", formData);
+  api
+    .addCard(formData)
+    .then((newCardData) => {
+      cardSection.addCard(newCardData);
+      addCardPopup.close();
+    })
+    .catch((err) => {
+      console.log("Error on adding new card:", err);
+    });
 });
 
 const imagePopup = new PopupWithImage("#image-popup");
+
+const confirmationPopup = new PopupWithConfirmation("#confirmation-popup");
+confirmationPopup.setEventListeners();
+
+const createCard = (cardData) => {
+  const card = new Card(
+    cardData,
+    "#card-template",
+    (name, link) => {
+      imagePopup.open(name, link);
+    },
+    confirmationPopup,
+    api
+  );
+  return card.generateCard();
+};
 
 editProfilePopup.setEventListeners();
 addCardPopup.setEventListeners();
@@ -85,6 +145,4 @@ addCardButton.addEventListener("click", () => {
   addCardPopup.open();
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  section.renderer();
-});
+document.addEventListener("DOMContentLoaded", () => {});

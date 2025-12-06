@@ -1,9 +1,12 @@
 class Card {
-  constructor(data, cardSelector, handleCardClick) {
+  constructor(data, cardSelector, handleCardClick, confirmationPopup, api) {
     this._name = data.name;
     this._link = data.link;
+    this._id = data._id;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
+    this._confirmationPopup = confirmationPopup;
+    this._api = api;
   }
 
   _getTemplate() {
@@ -16,7 +19,7 @@ class Card {
   }
 
   _handleDeleteClick() {
-    this._element.remove();
+    this._confirmationPopup.open(this);
   }
 
   _handleLikeClick() {
@@ -55,6 +58,18 @@ class Card {
     this._setEventListeners();
 
     return this._element;
+  }
+
+  deleteCard() {
+    this._api
+      .deleteCard(this._id)
+      .then(() => {
+        this._element.remove();
+        this._element = null;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 }
 
