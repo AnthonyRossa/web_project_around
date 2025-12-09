@@ -126,6 +126,10 @@
     padding: 0 5% 0;
   }
 
+  .profile__image-container {
+    justify-self: center;
+  }
+
   .profile__image {
     justify-self: center;
   }

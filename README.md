@@ -2,8 +2,13 @@
 
 Nome: Around The U.S
 
-Descrição: A funcionalidade é o perfil de uma rede social, onde varias fotos estão postadas, com a opção de modificar o nome e descrição do perfil.
+Descrição: A funcionalidade do projeto é um perfil de uma rede social, onde podem ser feitas postagens, que podem ser curtidas, abertas para visualização, removidas e etc. O perfil também pode ser editado, imagem, nome e sobre, tudo implementado em servidor, com o uso do API.
 
-Técnicas Ultilizadas: Este Projeto implementa varias funções, como css Grid, form, utilização de javascript, validação de formularios, classes, POO, desestruturação de objetos, API, entre outros.
+Técnicas Ultilizadas: Este Projeto implementa varias funcionalidades do JavaScript, CSS e HTML:
 
-link: https://anthonyrossa.github.io/web_project_around/index.html
+- CSS Grid, design adaptativo, Postiton.
+- Formularios com span e validação.
+- Utilização de classes de acordo com a Metodologia BEM.
+- Utilização de Javascript, com a POO, Classes e métodos, utilização da API e muito mais
+
+- Link: https://anthonyrossa.github.io/web_project_around/index.html
