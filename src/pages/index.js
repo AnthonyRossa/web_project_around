@@ -13,6 +13,8 @@ import {
   cardsContainer,
 } from "../utils/constants.js";
 
+let cardSection;
+
 const api = new Api({
   baseUrl: "https://around-api.pt-br.tripleten-services.com/v1",
   headers: {
@@ -40,7 +42,7 @@ api
 api
   .getInitialCards()
   .then((cards) => {
-    const cardSection = new Section(
+    cardSection = new Section(
       {
         items: cards,
         renderer: createCard,
@@ -68,23 +70,6 @@ const userInfo = new UserInfo({
   aboutSelector: ".profile__about",
 });
 
-const handleAddCardSubmit = () => {
-  const nameInput = addCardForm.querySelector("#place-title");
-  const linkInput = addCardForm.querySelector("#place-link");
-
-  const cardData = {
-    name: nameInput.value,
-    link: linkInput.value,
-  };
-
-  const card = new Card(cardData, "#card-template", (name, link) => {
-    imagePopup.open(name, link);
-  });
-  const cardElement = card.generateCard();
-
-  cardsContainer.prepend(cardElement);
-};
-
 const editProfilePopup = new PopupWithForm(
   "#edit-profile-popup",
   (formData) => {
@@ -101,11 +86,11 @@ const editProfilePopup = new PopupWithForm(
 );
 
 const addCardPopup = new PopupWithForm("#add-card-popup", (formData) => {
-  console.log("FormData being sent:", formData);
   api
     .addCard(formData)
     .then((newCardData) => {
-      cardSection.addCard(newCardData);
+      const cardElement = createCard(newCardData);
+      cardSection.addItem(cardElement);
       addCardPopup.close();
     })
     .catch((err) => {

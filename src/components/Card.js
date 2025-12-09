@@ -3,6 +3,8 @@ class Card {
     this._name = data.name;
     this._link = data.link;
     this._id = data._id;
+    this._isLiked = data.isLiked;
+    this._cardData = data;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
     this._confirmationPopup = confirmationPopup;
@@ -23,7 +25,26 @@ class Card {
   }
 
   _handleLikeClick() {
-    this._likeButton.classList.toggle("cards__like-button_active");
+    if (this._isLiked === true) {
+      this._api
+        .unlikeCard(this._id)
+        .then((_cardData) => {
+          this._likeButton.classList.toggle("cards__like-button_active");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+    if (this._isLiked === false) {
+      this._api
+        .likeCard(this._id)
+        .then((_cardData) => {
+          this._likeButton.classList.toggle("cards__like-button_active");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }
 
   _handleImageClick(_name, _link) {
@@ -53,6 +74,9 @@ class Card {
     this._element.querySelector(".cards__card-image").alt = this._name;
     this._element.querySelector(".cards__card-title").textContent = this._name;
     this._likeButton = this._element.querySelector(".cards__like-button");
+    if (this._isLiked) {
+      this._likeButton.classList.add("cards__like-button_active");
+    }
     this._deleteButton = this._element.querySelector(".cards__delete-button");
 
     this._setEventListeners();
