@@ -8,6 +8,13 @@ const validationConfig = {
 
 const editProfileForm = document.querySelector("#edit-profile-popup");
 const addCardForm = document.querySelector("#add-card-popup");
+const changeAvatarForm = document.querySelector("#change-avatar-popup");
 const cardsContainer = document.querySelector(".cards");
 
-export { validationConfig, editProfileForm, addCardForm, cardsContainer };
+export {
+  validationConfig,
+  editProfileForm,
+  addCardForm,
+  changeAvatarForm,
+  cardsContainer,
+};

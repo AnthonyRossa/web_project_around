@@ -10,7 +10,7 @@ import {
   validationConfig,
   editProfileForm,
   addCardForm,
-  cardsContainer,
+  changeAvatarForm,
 } from "../utils/constants.js";
 
 let cardSection;
@@ -62,8 +62,14 @@ const editProfileValidator = new FormValidator(
 );
 const addCardValidator = new FormValidator(validationConfig, addCardForm);
 
+const changeAvatarValidator = new FormValidator(
+  validationConfig,
+  changeAvatarForm
+);
+
 editProfileValidator.enableValidation();
 addCardValidator.enableValidation();
+changeAvatarValidator.enableValidation();
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
@@ -73,6 +79,12 @@ const userInfo = new UserInfo({
 const editProfilePopup = new PopupWithForm(
   "#edit-profile-popup",
   (formData) => {
+    const submitButton = document.querySelector(
+      "#edit-profile-popup .popup__button"
+    );
+    const originalText = submitButton.textContent;
+    submitButton.textContent = "Salvando...";
+
     api
       .setUserInfo(formData)
       .then((updatedUserData) => {
@@ -81,6 +93,9 @@ const editProfilePopup = new PopupWithForm(
       })
       .catch((err) => {
         console.log("Error at updating profile:", err);
+      })
+      .finally(() => {
+        submitButton.textContent = originalText;
       });
   }
 );
@@ -88,6 +103,12 @@ const editProfilePopup = new PopupWithForm(
 const changeAvatarPopup = new PopupWithForm(
   "#change-avatar-popup",
   (formData) => {
+    const submitButton = document.querySelector(
+      "#change-avatar-popup .popup__button"
+    );
+    const originalText = submitButton.textContent;
+    submitButton.textContent = "Salvando...";
+
     api
       .changeAvatar(formData)
       .then((updatedAvatar) => {
@@ -96,11 +117,18 @@ const changeAvatarPopup = new PopupWithForm(
       })
       .catch((err) => {
         console.log("Error at updating avatar:", err);
+      })
+      .finally(() => {
+        submitButton.textContent = originalText;
       });
   }
 );
 
 const addCardPopup = new PopupWithForm("#add-card-popup", (formData) => {
+  const submitButton = document.querySelector("#add-card-popup .popup__button");
+  const originalText = submitButton.textContent;
+  submitButton.textContent = "Salvando...";
+
   api
     .addCard(formData)
     .then((newCardData) => {
@@ -110,6 +138,9 @@ const addCardPopup = new PopupWithForm("#add-card-popup", (formData) => {
     })
     .catch((err) => {
       console.log("Error on adding new card:", err);
+    })
+    .finally(() => {
+      submitButton.textContent = originalText;
     });
 });
 
