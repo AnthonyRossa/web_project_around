@@ -5,11 +5,39 @@
   margin: 40px 0 50px 0;
 }
 
+.profile__image-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+}
+
 .profile__image {
   border-radius: 100%;
   width: 120px;
   height: 120px;
   object-fit: cover;
+}
+
+.profile__image-edit-button {
+  z-index: 2;
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: 0;
+  right: 0.1px;
+  background-color: rgba(0, 0, 0, 0.76);
+  border: none;
+  border-radius: 100%;
+  background-image: url(../../images/updata-avatar-icon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none;
+}
+
+.profile__image-container:hover .profile__image-edit-button {
+  display: block;
+  cursor: pointer;
 }
 
 .profile__info {

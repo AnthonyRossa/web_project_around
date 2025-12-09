@@ -85,6 +85,21 @@ const editProfilePopup = new PopupWithForm(
   }
 );
 
+const changeAvatarPopup = new PopupWithForm(
+  "#change-avatar-popup",
+  (formData) => {
+    api
+      .changeAvatar(formData)
+      .then((updatedAvatar) => {
+        document.querySelector(".profile__image").src = updatedAvatar.avatar;
+        changeAvatarPopup.close();
+      })
+      .catch((err) => {
+        console.log("Error at updating avatar:", err);
+      });
+  }
+);
+
 const addCardPopup = new PopupWithForm("#add-card-popup", (formData) => {
   api
     .addCard(formData)
@@ -117,12 +132,18 @@ const createCard = (cardData) => {
 };
 
 editProfilePopup.setEventListeners();
+changeAvatarPopup.setEventListeners();
 addCardPopup.setEventListeners();
 imagePopup.setEventListeners();
 
 const editButton = document.querySelector(".profile__edit-button");
 editButton.addEventListener("click", () => {
   editProfilePopup.open();
+});
+
+const editAvatarButton = document.querySelector(".profile__image-edit-button");
+editAvatarButton.addEventListener("click", () => {
+  changeAvatarPopup.open();
 });
 
 const addCardButton = document.querySelector(".profile__add-button");
