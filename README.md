@@ -11,4 +11,4 @@ Técnicas Ultilizadas: Este Projeto implementa varias funcionalidades do JavaScr
 - Utilização de classes de acordo com a Metodologia BEM.
 - Utilização de Javascript, com a POO, Classes e métodos, utilização da API e muito mais.
 
-- Link: https://anthonyrossa.github.io/web_project_around/index.html
+- Link: https://anthonyrossa.github.io/web_project_around/src/index.html
